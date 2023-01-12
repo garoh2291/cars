@@ -14,17 +14,16 @@ export const CalcAuctions = () => {
     console.log("changed", value);
   };
 
+  const nameValue = Form.useWatch("price", form);
+
   return (
     <div className="calc-auctions">
-      <label htmlFor="">Մեքենայի արժեք</label>
-      <InputNumber
-        style={{ width: "80%" }}
-        min={0}
-        type="number"
-        defaultValue={delivery.price}
-        onChange={onChange}
-        controls={false}
-      />
+      <Form form={form} layout="vertical" autoComplete="off">
+        <Form.Item name="price" label="Մեքենայի արժեքը">
+          <InputNumber style={{ width: "100%" }} />
+        </Form.Item>
+      </Form>
+      <p>{nameValue}</p>
     </div>
   );
 };
